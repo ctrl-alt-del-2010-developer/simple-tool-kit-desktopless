@@ -75,7 +75,6 @@ simple-tool-kit/
 ## 🚀 Future Plans
 
 * Add more tools (e.g., vulnerability scanners, password crackers)
-* GUI version using Tkinter or PyQt
 * Multilingual support (English/Turkish)
 * Logging, reporting features
 * Educational platform integration
