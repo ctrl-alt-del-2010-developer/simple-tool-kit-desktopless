@@ -25,14 +25,14 @@ while true; do
     case "$opition" in
         1)
             clear
-            python3 ~/simple-tool-kit/STK/Programs/red_hawk.py
+            python3 ~/simple-tool-kit-desktopless/STK/Programs/red_hawk.py
             clear
             read -p "Press Enter Button For Continue..."
             ;;
         2)
             clear
             sudo systemctl start tor
-            python3 ~/simple-tool-kit/STK/Programs/ip_changer.py
+            python3 ~/simple-tool-kit-desktopless/STK/Programs/ip_changer.py
             clear
             read -p "Press Enter Button For Continue..."
             ;;
@@ -44,7 +44,7 @@ while true; do
             ;;
         4)  
             clear
-            python3 ~/simple-tool-kit/STK/Programs/DDoS-tool.py
+            python3 ~/simple-tool-kit-desktopless/STK/Programs/DDoS-tool.py
             clear
             read -p "Press Enter Button For Continue..."
             ;;
@@ -71,7 +71,7 @@ while true; do
             ;;
         9)  
             clear
-            python3 ~/simple-tool-kit/STK/Programs/port_scanner.py
+            python3 ~/simple-tool-kit/STK-desktopless/Programs/port_scanner.py
             read -p "Press Enter Button For Continue..."
             ;;
         10)  
@@ -92,7 +92,7 @@ while true; do
             ;;
         99)  
             clear
-            cat ~/simple-tool-kit/STK/Programs/about.txt
+            cat ~/simple-tool-kit-desktopless/STK/Programs/about.txt
             read -p "Press Enter Button For Continue..."
             ;;
          0)  
