@@ -15,6 +15,13 @@ ascii="""
              ░ ░     ░                       ░  ░ ░            ░  ░         ░          ░    ░  ░   ░     
                                                 ░                                                       
 """
+def vip(yazi, bekleme=0.02, end="\n"):
+    for harf in yazi:
+        sys.stdout.write(harf)
+        sys.stdout.flush()
+        time.sleep(bekleme)
+    sys.stdout.write(end)  # print() yerine end parametresini kullandırıyoruz
+
 os.system("clear")
 print(ascii)
 
@@ -24,15 +31,6 @@ vip("Github: https://github.com/ctrl-alt-del-2010-developer/simple-tool-kit/blob
 vip("\033[92mFor legal purposes only\033[0m")
 vip("----------------------------------------------------------------------------------------------------------------")
     
-
-
-def vip(yazi, bekleme=0.02, end="\n"):
-    for harf in yazi:
-        sys.stdout.write(harf)
-        sys.stdout.flush()
-        time.sleep(bekleme)
-    sys.stdout.write(end)  # print() yerine end parametresini kullandırıyoruz
-
 def vip_input(yazi, bekleme=0.02):
     for harf in yazi:
         sys.stdout.write(harf)
