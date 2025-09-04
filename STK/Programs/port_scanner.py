@@ -1,6 +1,7 @@
 import sys
 import socket
 import time
+import os
 
 ascii="""
  ██▓███   ▒█████   ██▀███  ▄▄▄█████▓     ██████  ▄████▄   ▄▄▄       ███▄    █  ███▄    █ ▓█████  ██▀███  
@@ -53,6 +54,8 @@ def scan_ports(ip):
         vip("Scan complete.")
 
 def main():
+    os.system("clear")
+    print(ascii)
     if len(sys.argv) < 2:
         user_input = input("Enter IP Address or Domain: ").strip()
     else:
