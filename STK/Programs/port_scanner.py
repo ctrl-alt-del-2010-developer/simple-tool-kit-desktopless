@@ -15,6 +15,8 @@ ascii="""
              ░ ░     ░                       ░  ░ ░            ░  ░         ░          ░    ░  ░   ░     
                                                 ░                                                       
 """
+os.system("clear")
+    print(ascii)
 
 def vip(yazi, bekleme=0.01, end="\n"):
     for harf in yazi:
@@ -55,8 +57,6 @@ def scan_ports(ip):
 
 def main():
     if len(sys.argv) < 2:
-        os.system("clear")
-        print(ascii)
         user_input = input("Enter IP Address or Domain: ").strip()
     else:
         user_input = sys.argv[1].strip()
