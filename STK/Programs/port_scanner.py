@@ -3,6 +3,9 @@ import socket
 import time
 import os
 
+RED = "\033[31m"
+RESET = "\033[0m"
+
 ascii="""
  ██▓███   ▒█████   ██▀███  ▄▄▄█████▓     ██████  ▄████▄   ▄▄▄       ███▄    █  ███▄    █ ▓█████  ██▀███  
 ▓██░  ██▒▒██▒  ██▒▓██ ▒ ██▒▓  ██▒ ▓▒   ▒██    ▒ ▒██▀ ▀█  ▒████▄     ██ ▀█   █  ██ ▀█   █ ▓█   ▀ ▓██ ▒ ██▒
@@ -25,7 +28,7 @@ def vip(yazi, bekleme=0.02, end="\n"):
 version="1.2"
 
 os.system("clear")
-print(ascii)
+print(f"{RED}ascii{RESET}")
 
 vip(f"\033[91mPort Scanner\033[0m \033[95mVersion: {version}\033[0m")
 vip("Author: \033[91mctrl-alt-del-2010-developer\033[0m")
