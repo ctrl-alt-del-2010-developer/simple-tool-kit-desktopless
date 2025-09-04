@@ -17,6 +17,7 @@ ascii="""
 """
 os.system("clear")
 print(ascii)
+
 vip(f"\033[91mPort Scanner\033[0m \033[95mVersion: {version}\033[0m")
 vip("Author: \033[91mctrl-alt-del-2010-developer\033[0m")
 vip("Github: https://github.com/ctrl-alt-del-2010-developer/simple-tool-kit/blob/main/STK/Programs/port_scanner.py")
