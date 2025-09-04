@@ -18,7 +18,7 @@ ascii="""
 os.system("clear")
 print(ascii)
 
-def vip(yazi, bekleme=0.01, end="\n"):
+def vip(yazi, bekleme=0.02, end="\n"):
     for harf in yazi:
         sys.stdout.write(harf)
         sys.stdout.flush()
