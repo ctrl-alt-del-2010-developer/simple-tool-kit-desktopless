@@ -16,7 +16,7 @@ ascii="""
                                                 ░                                                       
 """
 os.system("clear")
-    print(ascii)
+print(ascii)
 
 def vip(yazi, bekleme=0.01, end="\n"):
     for harf in yazi:
