@@ -3,7 +3,7 @@
 ````markdown
 # 🛡️ Simple Tool Kit – A Cybersecurity Tool for Beginners
 
-**Simple Tool Kit Desktopless** is a lightweight, beginner-friendly cybersecurity toolkit designed to desktopless and help newcomers take their first steps in the field of ethical hacking and network security. Unlike complex professional tools, this project focuses on simplicity, clarity, and hands-on learning by bundling basic utilities into a single, easy-to-use package.
+**Simple Tool Kit** is a lightweight, beginner-friendly cybersecurity toolkit designed to help newcomers take their first steps in the field of ethical hacking and network security. Unlike complex professional tools, this project focuses on simplicity, clarity, and hands-on learning by bundling basic utilities into a single, easy-to-use package.
 
 ## 👥 Target Audience
 
@@ -75,6 +75,7 @@ simple-tool-kit/
 ## 🚀 Future Plans
 
 * Add more tools (e.g., vulnerability scanners, password crackers)
+* GUI version using Tkinter or PyQt
 * Multilingual support (English/Turkish)
 * Logging, reporting features
 * Educational platform integration
