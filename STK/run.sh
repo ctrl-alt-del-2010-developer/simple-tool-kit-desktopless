@@ -61,6 +61,7 @@ while true; do
             read -p "Press Enter Button For Continue..."
             ;;
         7)  
+            clear
             ping 1.1.1.1 
             read -p "Press Enter Button For Continue..."
             ;;
