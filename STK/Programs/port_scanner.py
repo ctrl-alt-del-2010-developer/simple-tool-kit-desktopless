@@ -25,6 +25,12 @@ def vip(yazi, bekleme=0.01, end="\n"):
         time.sleep(bekleme)
     sys.stdout.write(end)  # print() yerine end parametresini kullandırıyoruz
 
+def vip_input(yazi, bekleme=0.02):
+    for harf in yazi:
+        sys.stdout.write(harf)
+        sys.stdout.flush()
+        time.sleep(bekleme)
+    return input()  # kullanıcıdan giriş al ve geriye döndür
 
 def resolve_host(user_input):
     try:
@@ -57,7 +63,7 @@ def scan_ports(ip):
 
 def main():
     if len(sys.argv) < 2:
-        user_input = input("Enter IP Address or Domain: ").strip()
+        user_input = vip_input("Enter IP Address or Domain: ").strip()
     else:
         user_input = sys.argv[1].strip()
 
