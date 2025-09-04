@@ -22,6 +22,8 @@ def vip(yazi, bekleme=0.02, end="\n"):
         time.sleep(bekleme)
     sys.stdout.write(end)  # print() yerine end parametresini kullandırıyoruz
 
+version="1.2"
+
 os.system("clear")
 print(ascii)
 
