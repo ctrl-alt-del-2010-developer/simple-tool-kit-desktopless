@@ -38,6 +38,13 @@ def vip(yazi, bekleme=0.02, end="\n"):
         time.sleep(bekleme)
     sys.stdout.write(end)  # print() yerine end parametresini kullandırıyoruz
 
+def vip_input(yazi, bekleme=0.02):
+    for harf in yazi:
+        sys.stdout.write(harf)
+        sys.stdout.flush()
+        time.sleep(bekleme)
+    return input()  # kullanıcıdan giriş al ve geriye döndür
+
 def clear():
     os.system("clear")
 
@@ -63,9 +70,9 @@ def get_target():
         vip(f"{RED}[{YELLOW}02{RED}]{RESET} IP Address")
         vip(f"{RED}[{YELLOW}03{RED}]{RESET} About/Help")
         print("")
-        type_choice = input("Select target type [1/2/3]: ").strip()
+        type_choice = vip_input("Select target type [1/2/3]: ").strip()
         if type_choice == '1':
-            domain = input("Enter domain (e.g. example.com): ").strip()
+            domain = vip_input("Enter domain (e.g. example.com): ").strip()
             if not domain:
                 vip("Please enter a domain.")
                 continue
@@ -75,7 +82,7 @@ def get_target():
             except Exception as e:
                 vip(f"Could not resolve domain: {e}")
         elif type_choice == '2':
-            ip = input("Enter IP address: ").strip()
+            ip = vip_input("Enter IP address: ").strip()
             if not ip:
                 vip("Please enter an IP address.")
                 continue
@@ -90,12 +97,12 @@ def get_port():
         vip("Port Selection:")
         vip("1) All Ports (increment)")
         vip("2) Certain Port")
-        port_choice = input("Select port mode [1/2]: ").strip()
+        port_choice =  vip_input("Select port mode [1/2]: ").strip()
         if port_choice == '1':
             return False, 2
         elif port_choice == '2':
             try:
-                port = int(input("Enter port (2-65534): ").strip())
+                port = int(vip_input("Enter port (2-65534): ").strip())
                 if 2 <= port <= 65534:
                     return True, port
                 else:
