@@ -54,9 +54,9 @@ def scan_ports(ip):
         vip("Scan complete.")
 
 def main():
-    os.system("clear")
-    print(ascii)
     if len(sys.argv) < 2:
+        os.system("clear")
+        print(ascii)
         user_input = input("Enter IP Address or Domain: ").strip()
     else:
         user_input = sys.argv[1].strip()
