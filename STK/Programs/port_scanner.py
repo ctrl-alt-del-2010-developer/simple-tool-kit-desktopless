@@ -1,79 +1,70 @@
 import sys
 import socket
-import threading
-from PyQt5.QtWidgets import (
-    QApplication, QWidget, QVBoxLayout,
-    QLineEdit, QPushButton, QListWidget, QLabel
-)
+import time
 
-class PortScannerApp(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Port Scanner")
-        self.setGeometry(300, 300, 400, 400)
-        self.init_ui()
+ascii="""
+ ██▓███   ▒█████   ██▀███  ▄▄▄█████▓     ██████  ▄████▄   ▄▄▄       ███▄    █  ███▄    █ ▓█████  ██▀███  
+▓██░  ██▒▒██▒  ██▒▓██ ▒ ██▒▓  ██▒ ▓▒   ▒██    ▒ ▒██▀ ▀█  ▒████▄     ██ ▀█   █  ██ ▀█   █ ▓█   ▀ ▓██ ▒ ██▒
+▓██░ ██▓▒▒██░  ██▒▓██ ░▄█ ▒▒ ▓██░ ▒░   ░ ▓██▄   ▒▓█    ▄ ▒██  ▀█▄  ▓██  ▀█ ██▒▓██  ▀█ ██▒▒███   ▓██ ░▄█ ▒
+▒██▄█▓▒ ▒▒██   ██░▒██▀▀█▄  ░ ▓██▓ ░      ▒   ██▒▒▓▓▄ ▄██▒░██▄▄▄▄██ ▓██▒  ▐▌██▒▓██▒  ▐▌██▒▒▓█  ▄ ▒██▀▀█▄  
+▒██▒ ░  ░░ ████▓▒░░██▓ ▒██▒  ▒██▒ ░    ▒██████▒▒▒ ▓███▀ ░ ▓█   ▓██▒▒██░   ▓██░▒██░   ▓██░░▒████▒░██▓ ▒██▒
+▒▓▒░ ░  ░░ ▒░▒░▒░ ░ ▒▓ ░▒▓░  ▒ ░░      ▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒ ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░
+░▒ ░       ░ ▒ ▒░   ░▒ ░ ▒░    ░       ░ ░▒  ░ ░  ░  ▒     ▒   ▒▒ ░░ ░░   ░ ▒░░ ░░   ░ ▒░ ░ ░  ░  ░▒ ░ ▒░
+░░       ░ ░ ░ ▒    ░░   ░   ░         ░  ░  ░  ░          ░   ▒      ░   ░ ░    ░   ░ ░    ░     ░░   ░ 
+             ░ ░     ░                       ░  ░ ░            ░  ░         ░          ░    ░  ░   ░     
+                                                ░                                                       
+"""
 
-    def init_ui(self):
-        layout = QVBoxLayout()
+def vip(yazi, bekleme=0.01, end="\n"):
+    for harf in yazi:
+        sys.stdout.write(harf)
+        sys.stdout.flush()
+        time.sleep(bekleme)
+    sys.stdout.write(end)  # print() yerine end parametresini kullandırıyoruz
 
-        self.label = QLabel("Enter IP Address or Domain:")
-        layout.addWidget(self.label)
 
-        self.input_field = QLineEdit()
-        self.input_field.setPlaceholderText("e.g. 192.168.1.1 or example.com")
-        layout.addWidget(self.input_field)
+def resolve_host(user_input):
+    try:
+        ip = socket.gethostbyname(user_input)
+        vip(f"Resolved '{user_input}' to IP: {ip}")
+        return ip
+    except socket.gaierror:
+        vip(f"Error: Could not resolve '{user_input}'.")
+        return None
 
-        self.scan_button = QPushButton("Start Scan")
-        self.scan_button.clicked.connect(self.start_scan)
-        layout.addWidget(self.scan_button)
-
-        self.result_list = QListWidget()
-        layout.addWidget(self.result_list)
-
-        self.setLayout(layout)
-
-    def start_scan(self):
-        user_input = self.input_field.text().strip()
-        if not user_input:
-            self.result_list.addItem("Please enter a valid IP or domain.")
+def scan_ports(ip):
+    open_ports = []
+    vip(f"Scanning ports on {ip} (1-1024)...")
+    for port in range(1, 1025):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.settimeout(0.5)
+                result = sock.connect_ex((ip, port))
+                if result == 0:
+                    open_ports.append(port)
+                    vip(f"Port {port} is open.")
+        except socket.error:
+            vip(f"Error: Could not connect to {ip}.")
             return
 
-        self.result_list.clear()
-        self.result_list.addItem(f"Resolving '{user_input}'...")
+    if not open_ports:
+        vip("No open ports found.")
+    else:
+        vip("Scan complete.")
 
-        # Start thread to prevent GUI from freezing
-        scan_thread = threading.Thread(target=self.resolve_and_scan, args=(user_input,))
-        scan_thread.start()
+def main():
+    if len(sys.argv) < 2:
+        user_input = input("Enter IP Address or Domain: ").strip()
+    else:
+        user_input = sys.argv[1].strip()
 
-    def resolve_and_scan(self, user_input):
-        try:
-            ip = socket.gethostbyname(user_input)
-            self.result_list.addItem(f"Resolved to IP: {ip}")
-            self.scan_ports(ip)
-        except socket.gaierror:
-            self.result_list.addItem(f"Error: Could not resolve '{user_input}'.")
+    if not user_input:
+        vip("Please enter a valid IP or domain.")
+        return
 
-    def scan_ports(self, ip):
-        open_ports = []
-        for port in range(1, 1025):
-            try:
-                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-                    sock.settimeout(0.5)
-                    result = sock.connect_ex((ip, port))
-                    if result == 0:
-                        open_ports.append(port)
-                        self.result_list.addItem(f"Port {port} is open.")
-            except socket.error:
-                self.result_list.addItem(f"Error: Could not connect to {ip}.")
-                return
-
-        if not open_ports:
-            self.result_list.addItem("No open ports found.")
-        else:
-            self.result_list.addItem("Scan complete.")
+    ip = resolve_host(user_input)
+    if ip:
+        scan_ports(ip)
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = PortScannerApp()
-    window.show()
-    sys.exit(app.exec_())
+    main()
