@@ -10,7 +10,7 @@ RED = "\033[31m"
 YELLOW = "\033[33m"
 RESET = "\033[0m"
 
-def vip(yazi, bekleme=0.01, end="\n"):
+def vip(yazi, bekleme=0.02, end="\n"):
     for harf in yazi:
         sys.stdout.write(harf)
         sys.stdout.flush()
