@@ -10,7 +10,7 @@ while true; do
     clear
     cat ascii.txt  #Show The Ascii
     echo -e "${RED}[${YELLOW}01${RED}]${RESET} Red Hawk      ${RED}[${YELLOW}07${RED}]${RESET} Ping Test"
-    echo -e "${RED}[${YELLOW}02${RED}]${RESET} Tor IP        ${RED}[${YELLOW}08${RED}]${RESET} Tor Browser"
+    echo -e "${RED}[${YELLOW}02${RED}]${RESET} Tor IP        ${RED}[${YELLOW}08${RED}]${RESET} Browser(Lite)"
     echo -e "${RED}[${YELLOW}03${RED}]${RESET} Network Scan  ${RED}[${YELLOW}09${RED}]${RESET} Port Scanner"
     echo -e "${RED}[${YELLOW}04${RED}]${RESET} DDoS Tool     ${RED}[${YELLOW}10${RED}]${RESET} Sqlmap"   #Show The Menu
     echo -e "${RED}[${YELLOW}05${RED}]${RESET} Cmatrix       ${RED}[${YELLOW}11${RED}]${RESET} Wireshark(Lite)"
@@ -67,7 +67,7 @@ while true; do
             ;;
         8)  
             clear
-            torbrowser-launcher
+            links google.com
             read -p "Press Enter Button For Continue..."
             ;;
         9)  
