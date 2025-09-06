@@ -112,7 +112,7 @@ fi
 
 echo -e "${YELLOW}Detected package manager: $PKG_MANAGER${RESET}"
 
-PACKAGES="$PY2 $PY3 $PIP cmatrix aircrack-ng iwd torbrowser-launcher sqlmap wireshark htop"
+PACKAGES="$PY2 $PY3 $PIP cmatrix aircrack-ng iwd links sqlmap wireshark htop"
 
 # Check if the package manager is installed
 if ! command -v $PKG_MANAGER >/dev/null 2>&1; then
