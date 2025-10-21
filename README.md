@@ -1,6 +1,6 @@
-# 🛡️ Simple Tool Kit – Yeni Başlayanlar İçin Bir Siber Güvenlik Aracı
+# 🛡️ Simple Tool Kit Desktopless – Yeni Başlayanlar İçin Bir Siber Güvenlik Aracı
 
-**Simple Tool Kit**, etik hackleme ve ağ güvenliği alanında ilk adımlarını atanlar için tasarlanmış, hafif ve kullanıcı dostu bir siber güvenlik araç setidir. Karmaşık profesyonel araçların aksine, bu proje sadelik, açıklık ve uygulamalı öğrenmeye odaklanarak temel araçları tek bir kolay pakette bir araya getirir.
+**Simple Tool Kit Desktopless**, etik hackleme ve ağ güvenliği alanında ilk adımlarını atanlar için tasarlanmış, hafif,kullanıcı dostu ve adından da anlaşıldığı üzere masaüstü olmayan sistemler için üretilmiş bir siber güvenlik araç setidir. Karmaşık profesyonel araçların aksine, bu proje sadelik, açıklık ve uygulamalı öğrenmeye odaklanarak temel araçları tek bir kolay pakette bir araya getirir.
 
 ## 👥 Hedef Kitle
 
@@ -45,6 +45,8 @@ Siber güvenliğe başlamak çoğu zaman göz korkutucu olabilir. Çoğu güçl�
    ```bash
    bash run.sh
    ```
+## Ve Sonuç!
+   ![image](Screenshot_2025-10-21_21_01_11.png)
 
 4. Açılan menüden bir araç seç — her biri açıklamalarıyla birlikte gelir ve yeni başlayanlar için uygundur.
 
